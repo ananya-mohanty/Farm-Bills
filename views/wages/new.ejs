@@ -1,0 +1,94 @@
+<%- include("../../partials/header") %>
+
+<li><a href="/bill">Transactions</a></li>
+<li><a href="/land">Properties</a></li>
+<!-- <li><a href="/">Sign Up</a></li> -->
+
+
+</ul>
+</div>
+</div>
+
+</nav>
+</div>
+
+<h1> ADD TODAY's WORK</h1>
+<form action="/wage/add" method="POST"> 
+<div class="container">
+    <% workers.forEach(function(worker){ %>
+     
+	<div class="row">
+	<div class="holder">
+			<table width="100%">
+                <h2> <%= worker.name %></h2>
+
+                <tr>
+					<td>Employee Name</td>
+					<td>
+						<div>
+							<input type="text" name="name"value =  <%= worker.name %> />
+						    <span></span>
+						</div>
+					</td>
+                </tr>
+                <tr>
+					<td>Employee Name</td>
+					<td>
+						<div>
+							<input type="amount" name="wage"value =  <%= worker.wage %> />
+						    <span></span>
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<td>Mark As Present?</td>
+					<td>
+						<div>
+							<input type="checkbox" name="attendance" value=<%= worker.attendance %>/>
+						    <span></span>
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<td>Work Done</td>
+					<td>
+						<div>
+							<input type="text" name="description" placeholder="..."/>
+						    <span></span>
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<td>Performance</td>
+					<td>
+						<div>
+							<input type="checkbox" checked="" />
+						    <span></span>
+						</div>
+					</td>
+                </tr>
+                <tr>
+					<td>Date</td>
+					<td>
+						<div>
+							<input type="date" name="date" />
+						    <span></span>
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<td colspan="2">
+						
+					</td>
+				</tr>
+			</table>
+		</div>
+    </div>
+    <% }); %>
+    <input type="submit" value="Save Settings" >
+</div>
+<a href="/wage/add" class="btn btn-block create-account">Add Today's Records</a>
+
+
+</body>
+</html>

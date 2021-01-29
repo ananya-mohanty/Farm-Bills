@@ -1,0 +1,54 @@
+<%- include("../../partials/header") %>
+<li><a href="/land">Properties</a></li>
+<li><a href="/bill">Transactions</a></li>
+<!-- <li><a href="/">Sign Up</a></li> -->
+
+
+</ul>
+</div>
+</div>
+
+</nav>
+</div>
+
+<body>
+    <div class="registration-form">
+        <form action="/bill/add" method="POST">
+            <div class="form-icon">
+                <span><i class="icon icon-plus"></i></span>
+            </div>
+            <div class="form-group">
+                <input type="text" class="form-control item" name="recipient" placeholder="Recipient" >
+            </div>
+            <div class="form-group">
+                <input type="text" class="form-control item" name="land" placeholder="Property Concerned">
+            </div>
+            <div class="form-group">
+                <input type="text" class="form-control item" name="description" placeholder="Other Details">
+            </div>
+            <div class="form-group">
+                <input type="number" class="form-control item" name="amount" placeholder="Amount" >
+            </div>
+            <div class="form-group">
+                <input type="date" class="form-control item" name="date"  placeholder="dd-mm-yyyy" value=""
+                min="1997-01-01" max="2030-12-31" >
+            </div>
+           
+            <!-- <div class="form-group">
+                <input type="date" class="form-control item" id="date" placeholder="Date of Purchase">
+            </div>
+            -->
+            <div class="form-group">
+                <!-- <button type="button" class="btn btn-block create-account">Add New Property</button> -->
+                <input type="submit">
+
+            </div>
+        </form>
+       
+    </div>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.min.js"></script>
+    <!-- <script src="assets/js/script.js"></script> -->
+</body>
+</html>
+

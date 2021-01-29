@@ -1,0 +1,38 @@
+<%- include("../../partials/header") %>
+
+<li><a href="/bill">Transactions</a></li>
+<!-- <li><a href="/">Sign Up</a></li> -->
+
+
+</ul>
+</div>
+</div>
+
+</nav>
+</div>
+
+        <!-- THIS IS THE BLOCKS FOR DISPLAYING PROPERTIES -->
+        
+        <div class="container" id="cardblock">
+            <div class="row">
+                <% lands.forEach(function(land){ %>
+                <div class="col-md-4">
+                    <div class="content"> <a href="#">
+                            <div class="content-overlay"></div> <img class="content-image" src="https://res.cloudinary.com/dxfq3iotg/image/upload/v1557246503/3_zoom_1.jpg">
+                            <div class="content-details fadeIn-bottom">
+                                <h3 class="content-title"><%= land.name %></h3>
+                                <h4 class="content-title"><%= land.location %></h4>
+                                <p class="content-text"><i class="fa fa-map-marker"></i> <%= land.description %></p>
+                            </div>
+                        </a> </div>
+                </div>
+                <% }); %>
+                
+            </div>
+        </div>
+
+        <a href="/land/add" class="btn btn-block create-account">Add New Land</a>
+        <a href="/bill/add" class="btn btn-block create-account">Add Transaction</a>
+</body>
+</html>
+
