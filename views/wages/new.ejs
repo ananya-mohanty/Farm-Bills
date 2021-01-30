@@ -35,7 +35,7 @@
 					<td>Employee Name</td>
 					<td>
 						<div>
-							<input type="amount" name="wage"value =  <%= worker.wage %> />
+							<input type="amount" name="wage"value =  "<%= worker.wage %>" />
 						    <span></span>
 						</div>
 					</td>
@@ -44,7 +44,8 @@
 					<td>Mark As Present?</td>
 					<td>
 						<div>
-							<input type="checkbox" name="attendance" value=<%= worker.attendance %>/>
+							<input type="hidden" name="attendance" value="false">
+							<input type="checkbox" name="attendance" value="true">
 						    <span></span>
 						</div>
 					</td>
@@ -87,6 +88,15 @@
     <% }); %>
     <input type="submit" value="Save Settings" >
 </div>
+<!-- <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $('[key]').change(function () {
+            var key = $(this).attr('key');
+            $($('[name="checked[' + key + ']"]')).val($(this).is(':checked') ? 'true' : 'false');
+        });
+    });
+</script> -->
 <a href="/wage/add" class="btn btn-block create-account">Add Today's Records</a>
 
 

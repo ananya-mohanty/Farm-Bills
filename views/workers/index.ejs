@@ -8,26 +8,32 @@
               <!-- ################################################################################################ -->
               <section id="introblocks">
                 <div class="sectiontitle">
-                  <h6 class="heading">Erat etiam aliquet diam nec purus</h6>
-                  <p>Vitae porta purus hendrerit mauris elementum nibh et placerat</p>
-                </div>
-                <article>
+                    <article>
+                  <h6 class="heading"> Employee Database</h6>
+                  <p>View all registered employees in the organisation</p>
+                
+              
                     <footer><a class="btn" href="/employee/add"> Add New Employee</a></footer>
                 
                 </article>
-               <div class="container">
+                </div>
+               <!-- <div class="container"> -->
                 <!-- <div class="row"> -->
                 
                 <ul class="nospace group">
                     <% workers.forEach(function(worker){ %>
                         <div class="col-md-4">
-                  <li class="one_third " id="cardblock">
+                  <li class="one_half " id="cardblock">
                     <article><a href="#"><i class="fa fa-user-circle"></i></a>
                       <h6 class="heading"><%= worker.name %></h6>
                       <p><%= worker.wage %> </p>
                       <p><%= worker.description %>  </p>
                       <footer><a class="btn" id="edit" href="#">Edit</a>
-                        <a class="btn" id="delete" href="#">Delete</a></footer>
+                        <form class="delete-form" action="/employee/<%=worker._id%>?_method=DELETE" method="POST">
+                          <input type="submit" class="btn btn-xs btn-danger" id="delete" value="Delete"> 
+        
+                        </form>
+                      </footer>
                     </article>
                   </li>
                   <% }); %>

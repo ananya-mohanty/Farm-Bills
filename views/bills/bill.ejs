@@ -4,6 +4,20 @@
 
 <div id="detail">
   <h1>Past Transactions</h1>
+  <!-- <div class="sectiontitle">
+    <h6 class="heading">Erat etiam aliquet diam nec purus</h6>
+    <p>Vitae porta purus hendrerit mauris elementum nibh et placerat</p>
+  </div> -->
+  <div class="wrapper row3">
+   
+      <!-- main body -->
+      <!-- ################################################################################################ -->
+      <section id="introblocks">
+  <article>
+      <footer><a class="btn" href="/bill/add"> Add New Transaction</a></footer>
+  
+  </article>
+  </section>
   
   
       <div class="scrollable">
@@ -26,7 +40,13 @@
                 <td><%= bill.land %></td>
                 <td><%= bill.description %></td>
                 <td><%= bill.amount %></td>
-                <td><div> <button> Edit</button> <button> Delete</button></div></td>
+                <td><div>  
+                  
+                  <a class="btn btn-xs btn-warning" href="/bill/<%=bill._id %>/edit"> Edit</a>
+                  <form class="delete-form" action="/bill/<%=bill._id%>?_method=DELETE" method="POST">
+                  <input type="submit" class="btn btn-xs btn-danger" id="delete" value="Delete"> 
+
+                </form></div></td>
               </tr>
             
               <% }); %>

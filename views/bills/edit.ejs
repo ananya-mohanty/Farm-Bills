@@ -1,0 +1,46 @@
+
+<%- include("../../partials/header") %>
+
+<div class="registration-form">
+    <form  action="/bill/<%= bill.id %>?_method=PUT" method="POST">
+        <!-- <input type="submit" class="btn btn-xs btn-warning" id="edit" value="Edit">  -->
+
+  
+    <h1> Edit Details of Transaction</h1>
+    <div id="detail">
+        
+        <label for="date">Date of Transaction <span>*</span></label>
+        <input type="date" name="date" id="name" value="<%= bill.date %>" size="40" >
+      </div>
+    <div id="detail">
+        
+      <label for="name">Recipient <span>*</span></label>
+      <input type="text" name="recipient" id="name" value="<%= bill.recipient %>" size="40" required>
+    </div>
+   
+    <div id="detail">
+      <label for="location"> Property </label>
+      <input type="text" name="land" id="number" value="<%= bill.land %>" size="40">
+    </div>
+    <div class="block clear" id="detail">
+        <label for="comment">Amount</label>
+        <input type="number" name="amount" id="comment" value="<%= bill.amount %>" size="40">
+      </div>
+    <div class="block clear" id="detail">
+      <label for="comment">Description</label>
+      <textarea name="description" id="comment" cols="40" rows="5" value="<%= bill.description %>"></textarea>
+    </div>
+    <div>
+      <input type="submit" name="submit" value="Edit Transaction">
+      &nbsp;
+      <input type="reset" name="reset" value="Reset Form">
+    </div>
+  </form>
+</div>
+ 
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.min.js"></script>
+  
+  
+    <%- include("../../partials/footer") %>
+

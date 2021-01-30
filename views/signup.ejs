@@ -1,0 +1,31 @@
+<%- include("../partials/header.ejs") %>
+
+<div class="registration-form">
+    <form action="/signup" method="POST">
+        <h1> Enter Details of new Transaction</h1>
+        <div id="detail">
+          <label for="username">Enter Username <span>*</span></label>
+          <input type="text" name="username" id="name" value="" size="40" required>
+        </div>
+       
+        <div id="detail">
+          <label for="password"> Enter Password </label>
+          <input type="password" name="password" id="password" value="" size="40">
+        </div>
+       
+        <div>
+          <input type="submit" name="submit" value="Add New Transaction">
+          &nbsp;
+          <input type="reset" name="reset" value="Reset Form">
+        </div>
+      </form>
+    </div>
+     
+        <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.min.js"></script>
+      
+      
+
+
+
+<%- include("../partials/footer.ejs") %>
