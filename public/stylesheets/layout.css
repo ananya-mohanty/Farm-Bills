@@ -21,7 +21,14 @@ File: Layout CSS
 .row4, .row4 a{}
 .row5, .row5 a{}
 
-
+#cardblock{
+	margin-top: 20px;
+	position: relative;
+    width: 90%;
+	max-width: 400px;
+	height: 400px;
+    
+}
 /* Top Bar
 --------------------------------------------------------------------------------------------------------------- */
 #topbar{padding:15px 0; font-size:.8rem; text-transform:uppercase;}
@@ -49,7 +56,31 @@ File: Layout CSS
 
 #header div:last-child{margin-bottom:0;}/* Used when elements stack in small viewports */
 
+#delete{
+	color: red;
+}
+#edit{
+	color: rgb(40, 143, 40);
+}
+#detail{
+	padding: 10px;
+	size: 20px;
+	box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.075);
+	border-radius: 20px;
+    margin-bottom: 25px;
+    padding: 10px 20px;
 
+}
+.registration-form form{
+    background-color: #fff;
+    max-width: 900px;
+    margin: auto;
+    padding: 50px 70px;
+    border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
+	box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.075);
+	font-size: 18px;
+}
 /* Page Intro
 --------------------------------------------------------------------------------------------------------------- */
 #pageintro{padding:180px 0;}
@@ -73,7 +104,7 @@ File: Layout CSS
 #introblocks{margin-bottom:80px;}
 #introblocks > li:last-child{margin-bottom:0;}/* Used when elements stack in small viewports */
 #introblocks article{display:block; text-align:center; padding:30px 20px;}
-#introblocks article *{margin:0 0 25px 0;}
+#introblocks article *{margin:0 0 10px 0;}
 #introblocks article .btn{margin:10px 0 0 0;}
 #introblocks article > :last-child{margin-bottom:0;}
 #introblocks article i{display:inline-block; width:80px; height:80px; line-height:78px; border:1px solid; text-align:center; font-size:32px;}
@@ -192,7 +223,7 @@ nav ul, nav ol{margin:0; padding:0; list-style:none;}
 #mainav ul{text-transform:uppercase;}
 #mainav ul ul{z-index:9999; position:absolute; width:180px; text-transform:none; text-align:left;}
 #mainav ul ul ul{left:180px; top:0;}
-#mainav li{display:block; float:left; position:relative; margin:0; padding:0;}
+#mainav li{display:block; float:left; position:relative; margin:0; padding:10px; font-size: 15px;}
 #mainav li:last-child{margin-right:0;}
 #mainav li li{width:100%; margin:0;}
 #mainav li a{display:block; padding:20px;}

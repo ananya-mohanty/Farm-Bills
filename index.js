@@ -176,10 +176,19 @@ app.post("/bill/add", function(req, res){
     .save()
     .then(result => {
       console.log(result);
+      Bill.find({}, function(err, allBills){
+        if(err)
+            console.log(err);
+        else{
+            res.render("./bills/bill", {bills: allBills});
+        }
+ 
+ 
+   });
     })
     
 
-    res.render("./bills/bill", {bills:allBills});
+   
 
 
 });

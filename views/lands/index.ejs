@@ -1,38 +1,42 @@
 <%- include("../../partials/header") %>
 
-<li><a href="/bill">Transactions</a></li>
-<!-- <li><a href="/">Sign Up</a></li> -->
-
-
-</ul>
-</div>
-</div>
-
-</nav>
-</div>
-
+  
         <!-- THIS IS THE BLOCKS FOR DISPLAYING PROPERTIES -->
-        
-        <div class="container" id="cardblock">
-            <div class="row">
-                <% lands.forEach(function(land){ %>
-                <div class="col-md-4">
-                    <div class="content"> <a href="#">
-                            <div class="content-overlay"></div> <img class="content-image" src="https://res.cloudinary.com/dxfq3iotg/image/upload/v1557246503/3_zoom_1.jpg">
-                            <div class="content-details fadeIn-bottom">
-                                <h3 class="content-title"><%= land.name %></h3>
-                                <h4 class="content-title"><%= land.location %></h4>
-                                <p class="content-text"><i class="fa fa-map-marker"></i> <%= land.description %></p>
-                            </div>
-                        </a> </div>
+        <div class="wrapper row3">
+            <main class="hoc container clear"> 
+              <!-- main body -->
+              <!-- ################################################################################################ -->
+              <section id="introblocks">
+                <div class="sectiontitle">
+                  <h6 class="heading">Erat etiam aliquet diam nec purus</h6>
+                  <p>Vitae porta purus hendrerit mauris elementum nibh et placerat</p>
                 </div>
-                <% }); %>
+                <article>
+                    <footer><a class="btn" href="/land/add"> Add New Property</a></footer>
                 
+                </article>
+               <div class="container">
+                <!-- <div class="row"> -->
+                
+                <ul class="nospace group">
+                    <% lands.forEach(function(land){ %>
+                        <div class="col-md-4">
+                  <li class="one_third " id="cardblock">
+                    <article><a href="#"><i class="fa fa-home"></i></a>
+                      <h6 class="heading"><%= land.name %></h6>
+                      <p><%= land.location %> </p>
+                      <p><%= land.description %>  </p>
+                      <footer><a class="btn" id="edit" href="#">Edit</a>
+                        <a class="btn" id="delete" href="#">Delete</a></footer>
+                    </article>
+                  </li>
+                  <% }); %>
+                </ul>
             </div>
         </div>
-
-        <a href="/land/add" class="btn btn-block create-account">Add New Land</a>
-        <a href="/bill/add" class="btn btn-block create-account">Add Transaction</a>
-</body>
-</html>
-
+    </div>
+              </section>
+            </main>
+            </div>
+       
+            <%- include("../../partials/footer") %>

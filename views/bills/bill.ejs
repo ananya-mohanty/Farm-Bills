@@ -1,74 +1,42 @@
-<!DOCTYPE html>
-<head>
-    <title> Total Bills</title>
-    <link href="/stylesheets/main.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-       
-</head>
-
-<body>
-    <!-- THIS IS THE HEADER -->
-    <div class="heads">
-  <nav class="navbar navbar-default" id="heads">
-    <div class="container-fluid">
-      <div class="navbar-header">
-        <a class="navbar-brand" href="\land"> <div class="navhead">Farm Bills</div></a>
-      </div>
-      <div class="collapse navbar-collapse">
-        <ul class="nav navbar-nav navbar-right" id="heads">
-             
-                <li><a href="land">Properties</a></li>
-                <!-- <li><a href="/">Sign Up</a></li> -->
-           
-         
-        </ul>
-      </div>
-    </div>
-
-</nav>
-</div>
 
 
-    <div id="cardblock">
+<%- include("../../partials/header") %>
 
-    </div>
-    <section>
-        <!--for demo wrap-->
-        <h1>Past Transactions </h1>
-        <div class="tbl-header">
-          <table cellpadding="0" cellspacing="0" border="0">
-            <thead>
-              <tr>
-                <th>Date of transaction</th>
+<div id="detail">
+  <h1>Past Transactions</h1>
+  
+  
+      <div class="scrollable">
+        <table>
+          <thead>
+            <tr>
+              <th>Date of transaction</th>
                 <th>Recipient</th>
                 <th>Land/Property</th>
-                <th>Medium</th>
+                <th>Purpose</th>
                 <th>Amount</th>
-              </tr>
-            </thead>
-          </table>
-        </div>
-        <div class="tbl-content">
-          <table cellpadding="0" cellspacing="0" border="0">
-            <tbody>
-                <% bills.forEach(function(bill){ %>
+                <th>Edit/Delete</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% bills.forEach(function(bill){ %>
               <tr>
                 <td><%= bill.date %></td>
                 <td><%= bill.recipient %> </td>
                 <td><%= bill.land %></td>
                 <td><%= bill.description %></td>
                 <td><%= bill.amount %></td>
+                <td><div> <button> Edit</button> <button> Delete</button></div></td>
               </tr>
             
               <% }); %>
-              
 
-            </tbody>
-          </table>
-        </div>
-      </section>
-     
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.min.js"></script>
+    <!-- <script src="assets/js/script.js"></script> -->
+    <%- include("../../partials/footer") %>
 
-</body>
-
-</html>

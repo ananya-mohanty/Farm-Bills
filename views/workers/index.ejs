@@ -1,39 +1,47 @@
 <%- include("../../partials/header") %>
 
-<li><a href="/bill">Transactions</a></li>
-<li><a href="/land">Properties</a></li>
-<!-- <li><a href="/">Sign Up</a></li> -->
-
-
-</ul>
-</div>
-</div>
-
-</nav>
-</div>
-
+  
         <!-- THIS IS THE BLOCKS FOR DISPLAYING PROPERTIES -->
-        
-        <div class="container" id="cardblock">
-            <div class="row">
-                <% workers.forEach(function(worker){ %>
-                <div class="col-md-4">
-                    <div class="content"> <a href="#">
-                            <div class="content-overlay"></div> <img class="content-image" src="https://res.cloudinary.com/dxfq3iotg/image/upload/v1557246503/3_zoom_1.jpg">
-                            <div class="content-details fadeIn-bottom">
-                                <h3 class="content-title"><%= worker.name %></h3>
-                                <h4 class="content-title"><%= worker.wage %></h4>
-                                <p class="content-text"><i class="fa fa-map-marker"></i> <%= worker.description %></p>
-                            </div>
-                        </a> </div>
+        <div class="wrapper row3">
+            <main class="hoc container clear"> 
+              <!-- main body -->
+              <!-- ################################################################################################ -->
+              <section id="introblocks">
+                <div class="sectiontitle">
+                  <h6 class="heading">Erat etiam aliquet diam nec purus</h6>
+                  <p>Vitae porta purus hendrerit mauris elementum nibh et placerat</p>
                 </div>
-                <% }); %>
+                <article>
+                    <footer><a class="btn" href="/employee/add"> Add New Employee</a></footer>
                 
+                </article>
+               <div class="container">
+                <!-- <div class="row"> -->
+                
+                <ul class="nospace group">
+                    <% workers.forEach(function(worker){ %>
+                        <div class="col-md-4">
+                  <li class="one_third " id="cardblock">
+                    <article><a href="#"><i class="fa fa-user-circle"></i></a>
+                      <h6 class="heading"><%= worker.name %></h6>
+                      <p><%= worker.wage %> </p>
+                      <p><%= worker.description %>  </p>
+                      <footer><a class="btn" id="edit" href="#">Edit</a>
+                        <a class="btn" id="delete" href="#">Delete</a></footer>
+                    </article>
+                  </li>
+                  <% }); %>
+                </ul>
             </div>
         </div>
+    </div>
+              </section>
+            </main>
+            </div>
+           
+      
+        <!-- <a href="/land/add" class="btn btn-block create-account">Add New Land</a>
+        <a href="/bill/add" class="btn btn-block create-account">Add Transaction</a> -->
+        <%- include("../../partials/footer") %>
 
-        <a href="/employee/add" class="btn btn-block create-account">Add New Employee</a>
-        <!-- <a href="/bill/add" class="btn btn-block create-account">Add Transaction</a> -->
-</body>
-</html>
 
