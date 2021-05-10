@@ -12,9 +12,14 @@ var Bill = require('./models/bill');
 var Worker = require('./models/worker');
 var Wage =  require('./models/wage');
 const User = require("./models/user");
+var landRoutes = require("./routes/lands");
+var billRoutes = require("./routes/bills");
+var workerRoutes = require("./routes/workers");
+const worker = require("./models/worker");
 
 app.set("view engine", "ejs");
-//app.use(express.static("public"));
+
+
 app.use(express.static(__dirname + "/public"));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
@@ -32,7 +37,7 @@ mongoose.connect(
 );
 
 // add public direct
-app.use(express.static(__dirname + "/public"));
+
 
 //MAIN code goes here
 
@@ -86,260 +91,6 @@ app.post("/signup", (req, res) => {
 // });
 
 
-//LANDS
-app.get("/land", function(req, res){
-
-  Land.find({}, function(err, allLands){
-       if(err)
-           console.log(err);
-       else{
-           res.render("./lands/index", {lands: allLands});
-       }
-
-
-  });
-   //res.render("campgrounds", {campgrounds: campgrounds});
-}); 
-
-
-app.get("/land/add", function(req, res){
-
-  Land.find({}, function(err, allLands){
-       if(err)
-           console.log(err);
-       else{
-           res.render("./lands/new", {lands: allLands});
-       }
-
-
-  });
-   //res.render("campgrounds", {campgrounds: campgrounds});
-}); 
-
-app.post("/land/add", function(req, res){
- 
-  const land = new Land({
-    _id: mongoose.Types.ObjectId(),
-    name: req.body.name,
-    location: req.body.location,
-    description: req.body.description
-  });
-
-  land
-    .save()
-    .then(result => {
-      console.log(result);
-    })
-    .catch(err => console.log(err));
-
-    res.redirect("/land");
-  
-});
-
-app.post("/land/:id",function(req, res){
-  
-  Land.findByIdAndRemove(req.params.id)
-  .exec()
-  .then(doc => {
-    console.log(doc);
-  })
-  .catch(err => console.log(err));
-  // res.render("");
-
-  Land.find({}, function(err, allLands){
-    if(err)
-        console.log(err);
-    else{
-        res.redirect("/land");
-    }
-
-
-});
-
-});
-
-app.get("/bill", function(req, res){
-
-  Bill.find({}, function(err, allBills){
-       if(err)
-           console.log(err);
-       else{
-           res.render("./bills/bill", {bills: allBills});
-       }
-
-
-  });
-   //res.render("campgrounds", {campgrounds: campgrounds});
-}); 
-
-app.get("/bill/add", function(req, res){
-
-  Bill.find({}, function(err, allBills){
-       if(err)
-           console.log(err);
-       else{
-           res.render("./bills/new", {bills:allBills});
-       }
-
-
-  });
-  
-}); 
-
-app.post("/bill/add", function(req, res){
- 
-  const bill = new Bill({
-    _id: mongoose.Types.ObjectId(),
-    recipient: req.body.recipient,
-    land: req.body.land,
-    description: req.body.description,
-    date: req.body.date,
-    amount: req.body.amount
-  });
-
-  bill
-    .save()
-    .then(result => {
-      console.log(result);
-      Bill.find({}, function(err, allBills){
-        if(err)
-            console.log(err);
-        else{
-            res.render("./bills/bill", {bills: allBills});
-        }
- 
- 
-   });
-    })
-    
-
-   
-
-
-});
-
-app.post("/bill/:id",function(req, res){
-  
-  Bill.findByIdAndRemove(req.params.id)
-  .exec()
-  .then(doc => {
-    console.log(doc);
-  })
-  .catch(err => console.log(err));
-  // res.render("");
-
-  Bill.find({}, function(err, allBills){
-    if(err)
-        console.log(err);
-    else{
-        res.redirect("/bill");
-    }
-
-
-});
-
-});
-
-
-app.get("/bill/:id/edit", function(req, res){
-
-  Bill.findById(req.params.id, function(err, foundBill){
-
-           
-            res.render("bills/edit", {bill: foundBill});
-   });
-});
-//update
-app.put("/bill/:id",function(req, res){
-
-Bill.findByIdAndUpdate(req.params.id, req.body.bill, function(err, updatedCampground){
-   if(err)
-   {
-       console.log(err);
-
-       res.redirect("/bill");
-   }
-   else{
-       //res.send("EDITING");
-       res.redirect("/bill/" + req.params.id);
-   }
-});
-});
-
-
-
-// WORKER
-app.get("/employee", function(req, res){
-
-  Worker.find({}, function(err, allWorkers){
-       if(err)
-           console.log(err);
-       else{
-           res.render("./workers/index", {workers: allWorkers});
-       }
-
-
-  });
-   //res.render("campgrounds", {campgrounds: campgrounds});
-}); 
-
-
-app.get("/employee/add", function(req, res){
-
-  Worker.find({}, function(err, allWorkers){
-       if(err)
-           console.log(err);
-       else{
-           res.render("./workers/new", {workers: allWorkers});
-       }
-
-
-  });
-   //res.render("campgrounds", {campgrounds: campgrounds});
-}); 
-
-app.post("/employee/add", function(req, res){
- 
-  const worker = new Worker({
-    _id: mongoose.Types.ObjectId(),
-    name: req.body.name,
-    wage: req.body.wage,
-    description: req.body.description
-  });
-
-  worker
-    .save()
-    .then(result => {
-      console.log(result);
-    })
-    .catch(err => console.log(err));
-
-  // res.redirect()
-  // Campground.push(newCampground);
-  res.redirect("/employee");
-});
-
-app.post("/employee/:id",function(req, res){
-  
-  Worker.findByIdAndRemove(req.params.id)
-  .exec()
-  .then(doc => {
-    console.log(doc);
-  })
-  .catch(err => console.log(err));
-  // res.render("");
-
-  Worker.find({}, function(err, allLands){
-    if(err)
-        console.log(err);
-    else{
-        res.redirect("/employee");
-    }
-
-
-});
-
-});
 
 // DAILY WAGE UPDATE
 
@@ -431,9 +182,12 @@ app.get("/wage", (req, res) => {
 
 });
 });
-
+app.use("/land", landRoutes);
+app.use("/bill", billRoutes);
+app.use("/worker", workerRoutes);
+// app.use(express.static(__dirname + "/public"));
 //add port to listen-default 3000
-app.listen(process.env.PORT||3003, function(){
+app.listen(process.env.PORT||8000, function(){
   console.log("The Server has started");
 });
 
