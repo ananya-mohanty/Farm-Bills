@@ -15,6 +15,7 @@ const User = require("./models/user");
 var landRoutes = require("./routes/lands");
 var billRoutes = require("./routes/bills");
 var workerRoutes = require("./routes/workers");
+var employeeRoutes = require("./routes/employees");
 const worker = require("./models/worker");
 
 app.set("view engine", "ejs");
@@ -185,6 +186,7 @@ app.get("/wage", (req, res) => {
 app.use("/land", landRoutes);
 app.use("/bill", billRoutes);
 app.use("/worker", workerRoutes);
+app.use("/employee", employeeRoutes);
 // app.use(express.static(__dirname + "/public"));
 //add port to listen-default 3000
 app.listen(process.env.PORT||8000, function(){

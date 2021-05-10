@@ -5,8 +5,8 @@ const employeeSchema = mongoose.Schema({
     _id: mongoose.Schema.Types.ObjectId,
     name: String,
     salary: Number,
-    dateOfJoining: Date,
-    Aadhar: Number,
+    date_of_joining: Date,
+    aadhar: Number,
     description: String
   
   });

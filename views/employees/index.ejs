@@ -9,11 +9,11 @@
               <section id="introblocks">
                 <div class="sectiontitle">
                     <article>
-                  <h6 class="heading"> worker Database</h6>
-                  <p>View all registered workers in the organisation</p>
+                  <h6 class="heading"> employee Database</h6>
+                  <p>View all registered employees in the organisation</p>
                 
               
-                    <footer><a class="btn" href="/worker/add"> Add New worker</a></footer>
+                    <footer><a class="btn" href="/employee/add"> Add New employee</a></footer>
                 
                 </article>
                 </div>
@@ -21,15 +21,17 @@
                 <!-- <div class="row"> -->
                 
                 <ul class="nospace group"
-                    <% workers.forEach(function(worker){ %>
+                    <% employees.forEach(function(employee){ %>
                         <div class="col-md-4">
                   <li class="one_half " id="cardblock">
                     <article><a href="#"><i class="fa fa-user-circle"></i></a>
-                      <h6 class="heading"><%= worker.name %></h6>
-                      <p><%= worker.wage %> </p>
-                      <p><%= worker.description %>  </p>
+                      <h6 class="heading"><%= employee.name %></h6>
+                      <p><%= employee.salary %> </p>
+                      <p><%= employee.Aadhar %> </p>
+                      <p><%= employee.date_of_joining %> </p>
+                      <p><%= employee.description %>  </p>
                       <footer><a class="btn" id="edit" href="#">Edit</a>
-                        <form class="delete-form" action="/worker/<%=worker._id%>?_method=DELETE" method="POST">
+                        <form class="delete-form" action="/employee/<%=employee._id%>?_method=DELETE" method="POST">
                           <input type="submit" class="btn btn-xs btn-danger" id="delete" value="Delete"> 
         
                         </form>

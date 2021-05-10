@@ -11,11 +11,11 @@ var Employee = require('../models/employee');
 
 router.get("/", function(req, res){
 
-    Worker.find({}, function(err, allWorkers){
+    Employee.find({}, function(err, allEmployees){
          if(err)
              console.log(err);
          else{
-             res.render("workers/index", {workers: allWorkers});
+             res.render("employees/index", {employees: allEmployees});
          }
   
   
@@ -26,11 +26,11 @@ router.get("/", function(req, res){
   
   router.get("/add", function(req, res){
   
-    Worker.find({}, function(err, allWorkers){
+    Employee.find({}, function(err, allEmployees){
          if(err)
              console.log(err);
          else{
-             res.render("workers/new", {workers: allWorkers});
+             res.render("employees/new", {employees: allEmployees});
          }
   
   
@@ -40,14 +40,15 @@ router.get("/", function(req, res){
   
   router.post("/add", function(req, res){
    
-    const worker = new Worker({
+    const employee = new Employee({
       _id: mongoose.Types.ObjectId(),
       name: req.body.name,
-      wage: req.body.wage,
+      salary: req.body.salary,
+      date_of_joining: req.body.date_of_joining,
       description: req.body.description
     });
   
-    worker
+    employee
       .save()
       .then(result => {
         console.log(result);
@@ -56,12 +57,12 @@ router.get("/", function(req, res){
   
     // res.redirect()
     // Campground.push(newCampground);
-    res.redirect("");
+    res.redirect("/");
   });
   
   router.post("/:id",function(req, res){
     
-    Worker.findByIdAndRemove(req.params.id)
+    Employee.findByIdAndRemove(req.params.id)
     .exec()
     .then(doc => {
       console.log(doc);
@@ -69,7 +70,7 @@ router.get("/", function(req, res){
     .catch(err => console.log(err));
     // res.render("");
   
-    Worker.find({}, function(err, allLands){
+    Employee.find({}, function(err, allLands){
       if(err)
           console.log(err);
       else{
